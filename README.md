@@ -8,7 +8,7 @@ Five direct-response landing pages built for a copywriting portfolio. For each p
 | 2 | Book-a-call | 1:1 coaching for new tech managers (Keelhouse) | `/book-a-call` | [rafay-landing-page-repo.vercel.app/book-a-call](https://rafay-landing-page-repo.vercel.app/book-a-call/) |
 | 3 | Lead magnet | Free 5-day leash pulling course (Slackline Dog School) | `/lead-magnet` | [rafay-landing-page-repo.vercel.app/lead-magnet](https://rafay-landing-page-repo.vercel.app/lead-magnet/) |
 | 4 | Webinar | Free live sourdough bake-along (Proofline Bake School) | `/webinar` | [rafay-landing-page-repo.vercel.app/webinar](https://rafay-landing-page-repo.vercel.app/webinar/) |
-| 5 | Sales page | TBD | `/sales-page` | — |
+| 5 | Sales page | Playwright course for manual testers (Greenrun) | `/sales-page` | [rafay-landing-page-repo.vercel.app/sales-page](https://rafay-landing-page-repo.vercel.app/sales-page/) |
 
 **Portfolio index:** https://rafay-landing-page-repo.vercel.app
 
