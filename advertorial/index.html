@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northgrain Men's Daily</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="He quit every vitamin he ever bought. A dietitian told his wife why.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&family=Newsreader:opsz,wght@6..72,500;6..72,700;6..72,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: a regional health-news site. Article column + right rail, pull quotes hang into the left margin, one forest band for the offer. */
+:root{
+  --paper:#F1F2EC; --paper-2:#E4E8DF; --ink:#1C221E; --ink-soft:#4C5650; --rule:#C7CEC2;
+  --accent:#B66F1C; --band:#1F3D2D; --band-ink:#EEF0E8; --band-soft:#B7C8BB;
+  --cta-bg:#D08F2E; --cta-ink:#1B1810; --heading:#1F3D2D;
+  --wall:#DCE2D6; --floor:#CDBF9F; --couch:#2C5340; --couch-2:#22412F; --skin:#C49572; --shirt:#5D6E78; --pants:#38434A;
+  --berry:#93324A; --berry-2:#C2566B; --gold:#E2A43E; --bottle:#1F3D2D; --label:#F4F1E6;
+  --font-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --font-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-ui:"Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#131714; --paper-2:#1C221E; --ink:#E4E7DF; --ink-soft:#A6AEA6; --rule:#2F3732;
+  --accent:#E3A24E; --band:#182A20; --band-ink:#E9ECE3; --band-soft:#9DB3A3;
+  --cta-bg:#E0A447; --cta-ink:#17140D; --heading:#A9CDB4;
+  --wall:#222A25; --floor:#3B3529; --couch:#2F5C45; --couch-2:#254A37; --skin:#B48464; --shirt:#71838E; --pants:#4A565E;
+  --berry:#B4485F; --berry-2:#D46F82; --gold:#E9B04F; --bottle:#2E5A43; --label:#ECE8DC; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#131714; --paper-2:#1C221E; --ink:#E4E7DF; --ink-soft:#A6AEA6; --rule:#2F3732;
+  --accent:#E3A24E; --band:#182A20; --band-ink:#E9ECE3; --band-soft:#9DB3A3;
+  --cta-bg:#E0A447; --cta-ink:#17140D; --heading:#A9CDB4;
+  --wall:#222A25; --floor:#3B3529; --couch:#2F5C45; --couch-2:#254A37; --skin:#B48464; --shirt:#71838E; --pants:#4A565E;
+  --berry:#B4485F; --berry-2:#D46F82; --gold:#E9B04F; --bottle:#2E5A43; --label:#ECE8DC; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:1.125rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1160px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;color:var(--heading);line-height:1.15;margin:0}
+p{margin:0}
+.ui{font-family:var(--font-ui)}
+
+/* Masthead */
+.adbar{background:var(--paper-2);font-family:var(--font-ui);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.adbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-block:7px;flex-wrap:wrap}
+.masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--font-display);font-weight:800;font-size:1.65rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none;line-height:1}
+.logo span{color:var(--accent)}
+.nav{display:flex;gap:22px;font-family:var(--font-ui);font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+.nav a{text-decoration:none}
+.nav a.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--accent)}
+@media (max-width:760px){.nav{display:none}.logo{font-size:1.35rem}}
+
+/* Article grid */
+.page{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:72px;padding-block:44px 64px}
+@media (max-width:980px){.page{grid-template-columns:minmax(0,1fr);gap:48px}}
+article{max-width:680px;min-width:0}
+.kicker{display:flex;gap:10px;align-items:center;font-family:var(--font-ui);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.kicker .tag{color:var(--accent)}
+.kicker .paid{color:var(--ink-soft);font-weight:600;border:1px solid var(--rule);padding:2px 7px;border-radius:2px}
+h1{font-size:clamp(2rem,4.6vw,3.05rem);font-weight:800;letter-spacing:-.015em;margin-top:18px;color:var(--ink)}
+.dek{font-size:1.25rem;line-height:1.5;color:var(--ink-soft);margin-top:16px;font-style:italic}
+.byline{display:flex;align-items:center;gap:12px;margin-top:26px;padding-block:14px;border-block:1px solid var(--rule);font-family:var(--font-ui);font-size:.84rem;color:var(--ink-soft)}
+.avatar{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-ui);font-weight:800;font-size:.85rem;background:var(--band);color:var(--band-ink)}
+.byline b{color:var(--ink)}
+figure{margin:34px 0}
+figure svg{display:block;width:100%;height:auto;max-width:100%;border-radius:3px}
+figcaption{font-family:var(--font-ui);font-size:.78rem;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+.body{display:flex;flex-direction:column;gap:1.15em}
+.body h2{font-size:clamp(1.55rem,3vw,1.95rem);font-weight:700;margin-top:1.3em}
+.dropcap::first-letter{float:left;font-family:var(--font-display);font-weight:800;font-size:4.1em;line-height:.82;padding:6px 10px 0 0;color:var(--accent)}
+.strong-line{font-weight:600}
+.aside-note{font-family:var(--font-ui);font-size:.95rem;color:var(--ink-soft)}
+
+.fails{list-style:none;margin:0;padding:0;border-left:3px solid var(--rule);display:flex;flex-direction:column;gap:10px;padding-left:20px}
+.fails li{position:relative}
+.fails .x{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--berry);margin-right:8px}
+
+.pull{margin:1.4em 0 1.2em;position:relative}
+@media (min-width:1100px){.pull{margin-left:-90px}}
+.pull blockquote{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.15rem);line-height:1.25;color:var(--heading);text-wrap:balance}
+.pull blockquote::before{content:"\201C";display:block;font-size:3.5em;line-height:.6;color:var(--accent);height:.42em}
+.pull cite{display:block;margin-top:14px;font-style:normal;font-family:var(--font-ui);font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+
+.principle{background:var(--paper-2);padding:22px 24px;border-radius:3px;font-family:var(--font-display);font-size:1.35rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.three{counter-reset:t;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.three li{counter-increment:t;display:grid;grid-template-columns:34px 1fr;gap:8px}
+.three li::before{content:counter(t);font-family:var(--font-display);font-weight:800;font-size:1.5rem;line-height:1.3;color:var(--accent)}
+
+/* Calendar callout */
+.callout{border:1px solid var(--rule);border-radius:4px;padding:24px;margin:.6em 0;background:var(--paper)}
+.callout-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--font-ui);font-size:.75rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+.cal-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px}
+@media (max-width:560px){.cal-row{grid-template-columns:1fr}}
+.cal h3{font-family:var(--font-ui);font-size:.9rem;font-weight:800;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+.cal h3 .n{font-variant-numeric:tabular-nums;font-family:var(--font-display);font-size:1.6rem;line-height:1}
+.cal h3 .n small{font-size:.55em;color:var(--ink-soft);font-family:var(--font-ui);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:10px}
+.grid i{aspect-ratio:1;max-width:100%;border-radius:2px;background:var(--paper-2);border:1px solid var(--rule)}
+.cal.old .grid i.on{background:var(--ink-soft);border-color:var(--ink-soft)}
+.cal.new .grid i.on{background:var(--accent);border-color:var(--accent)}
+.callout .src{font-family:var(--font-ui);font-size:.75rem;color:var(--ink-soft);margin-top:14px}
+
+/* Reasons */
+.reasons{display:flex;flex-direction:column;gap:30px;margin-top:.4em}
+.reason{display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start}
+.reason:nth-child(even){grid-template-columns:minmax(0,1fr) 72px}
+.reason:nth-child(even) .num{order:2;text-align:right}
+.num{font-family:var(--font-display);font-weight:800;font-size:3.6rem;line-height:.85;color:var(--accent)}
+.reason h3{font-size:1.3rem;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.reason p{font-size:1.05rem}
+.ingred{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ingred span{font-family:var(--font-ui);font-size:.75rem;font-weight:600;padding:3px 9px;border:1px solid var(--rule);border-radius:99px;color:var(--ink-soft)}
+
+/* Reviews as reader comments */
+.comments{border-top:2px solid var(--ink);margin-top:1em;padding-top:6px}
+.comments-h{font-family:var(--font-ui);font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);display:flex;justify-content:space-between;padding-block:8px}
+.comment{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding-block:18px;border-top:1px solid var(--rule)}
+.comment .avatar{background:var(--paper-2);color:var(--ink)}
+.comment .who{font-family:var(--font-ui);font-size:.84rem;color:var(--ink-soft)}
+.comment .who b{color:var(--ink)}
+.stars{color:var(--accent);letter-spacing:2px;font-size:.8rem;margin-left:6px}
+.comment p{margin-top:5px;font-size:1.04rem}
+.comment.reply{margin-left:54px}
+@media (max-width:560px){.comment.reply{margin-left:22px}}
+
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 18px;font-family:var(--font-ui);font-size:.92rem;line-height:1.6;color:var(--ink-soft)}
+.note b{color:var(--ink);display:block;margin-bottom:4px;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
+
+/* Offer band */
+.offer{background:var(--band);color:var(--band-ink);border-radius:4px;margin:1.4em 0 .4em;display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;padding:30px}
+@media (max-width:640px){.offer{grid-template-columns:1fr;padding:24px 20px}.offer .shot{max-width:200px}}
+.offer h2{color:var(--band-ink);margin:0 0 6px;font-size:1.65rem}
+.offer .lede{color:var(--band-soft);font-size:1rem}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.opt{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid color-mix(in srgb,var(--band-ink) 25%,transparent);border-radius:3px;cursor:pointer;font-family:var(--font-ui);font-size:.92rem;transition:border-color .2s,background .2s}
+.opt input{accent-color:var(--cta-bg);width:18px;height:18px;margin:0}
+.opt:hover{border-color:var(--band-soft)}
+.opt.sel{border-color:var(--cta-bg);background:color-mix(in srgb,var(--cta-bg) 12%,transparent)}
+.opt .price{font-variant-numeric:tabular-nums;font-weight:800;text-align:right}
+.opt .price s{font-weight:400;color:var(--band-soft);margin-right:6px}
+.opt small{display:block;color:var(--band-soft);font-size:.78rem}
+.badge{display:inline-block;margin-left:6px;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--cta-bg);color:var(--cta-ink);padding:2px 6px;border-radius:2px;vertical-align:2px}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;width:100%;padding:16px 22px;background:var(--cta-bg);color:var(--cta-ink);font-family:var(--font-ui);font-weight:800;font-size:1.02rem;text-decoration:none;border-radius:3px;transition:transform .2s ease,box-shadow .2s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.fine{font-family:var(--font-ui);font-size:.76rem;color:var(--band-soft);margin-top:10px;line-height:1.5}
+.inline-cta{font-family:var(--font-ui);font-weight:700;font-size:.98rem;color:var(--accent);text-decoration:none;border-bottom:2px solid currentColor;align-self:flex-start}
+.inline-cta:hover{opacity:.8}
+
+/* FAQ */
+.faq{margin-top:.4em;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;position:relative;font-family:var(--font-ui);font-weight:600;font-size:1rem;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:1.5rem;color:var(--accent);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 18px;font-size:1.04rem;color:var(--ink-soft)}
+.disclaimer{font-family:var(--font-ui);font-size:.76rem;line-height:1.6;color:var(--ink-soft);margin-top:2em;padding-top:18px;border-top:1px solid var(--rule)}
+
+/* Rail */
+.rail{min-width:0;display:flex;flex-direction:column;gap:36px}
+.rail-h{font-family:var(--font-ui);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.mostread{list-style:none;margin:0;padding:0;counter-reset:m}
+.mostread li{counter-increment:m;display:grid;grid-template-columns:28px 1fr;gap:6px;padding-block:14px;border-bottom:1px solid var(--rule);font-family:var(--font-display);font-weight:500;font-size:1.02rem;line-height:1.35}
+.mostread li::before{content:counter(m);font-weight:800;color:var(--accent)}
+.mostread a{text-decoration:none}
+.mostread a:hover{text-decoration:underline}
+.sticky{position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px)}
+.mini{border:1px solid var(--rule);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.mini .eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.mini p{font-size:.98rem;line-height:1.5}
+.mini a{font-family:var(--font-ui);font-weight:800;font-size:.88rem;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);align-self:flex-start}
+@media (max-width:980px){.sticky{position:static}}
+
+footer{border-top:1px solid var(--rule);background:var(--paper-2)}
+footer .wrap{padding-block:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-soft)}
+footer .port{font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+
+/* SVG art classes */
+.c-wall{fill:var(--wall)}.c-floor{fill:var(--floor)}.c-couch{fill:var(--couch)}.c-couch2{fill:var(--couch-2)}
+.c-skin{fill:var(--skin)}.c-shirt{fill:var(--shirt)}.c-pants{fill:var(--pants)}.c-paper{fill:var(--paper)}.c-paper2{fill:var(--paper-2)}
+.c-ink{fill:var(--ink)}.c-soft{fill:var(--ink-soft)}.c-accent{fill:var(--accent)}.c-gold{fill:var(--gold)}
+.c-berry{fill:var(--berry)}.c-berry2{fill:var(--berry-2)}.c-bottle{fill:var(--bottle)}.c-label{fill:var(--label)}.c-rule{fill:var(--rule)}
+.s-ink{stroke:var(--ink)}.s-soft{stroke:var(--ink-soft)}.s-accent{stroke:var(--accent)}.s-rule{stroke:var(--rule)}
+.t-ui{font-family:var(--font-ui)}.t-disp{font-family:var(--font-display)}
+
+/* Motion */
+.rv{transition:opacity .7s ease,transform .7s ease}
+.rv.pre{opacity:0;transform:translateY(18px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pre{opacity:1;transform:none;transition:none}.cta,.opt,.faq summary::after{transition:none}}
+</style>
+</head>
+<body>
+<div class="adbar gutter"><div class="wrap"><span>Advertorial · Paid content</span><span>Sunday, November 1, 2026</span></div></div>
+
+<header class="masthead gutter">
+  <div class="wrap">
+    <a class="logo" href="#">The Rested <span>Ledger</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#">Sleep</a><a href="#">Nutrition</a><a class="on" href="#">Health &amp; Habits</a><a href="#">Family</a><a href="#">Aging Well</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main class="gutter">
+<div class="wrap page">
+<article>
+  <div class="kicker"><span class="tag">Health &amp; Habits</span><span class="paid">Advertorial</span></div>
+  <h1>He Quit Every Vitamin He Ever Bought. A Dietitian Told His Wife Why, and It Wasn't Laziness.</h1>
+  <p class="dek">Thousands of men 35+ are making one small switch. Their wives say it's the first health habit that actually stuck.</p>
+  <div class="byline">
+    <div class="avatar" aria-hidden="true">KD</div>
+    <div><b>By Karen Doyle</b>, as told by Linda M.<br>Updated November 1, 2026 · 6 min read</div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 720 400" role="img" aria-label="Illustration of a tired man lying on a couch in the afternoon, a wall clock showing just after 3 o'clock">
+      <rect class="c-wall" width="720" height="400"/>
+      <rect class="c-floor" y="318" width="720" height="82"/>
+      <!-- window with afternoon light -->
+      <rect class="c-paper" x="470" y="48" width="170" height="150" rx="3" opacity=".75"/>
+      <rect class="c-rule" x="553" y="48" width="4" height="150"/><rect class="c-rule" x="470" y="121" width="170" height="4"/>
+      <polygon class="c-gold" points="470,198 640,198 600,318 420,318" opacity=".18"/>
+      <!-- clock -->
+      <circle class="c-paper" cx="230" cy="92" r="40"/><circle class="s-ink" cx="230" cy="92" r="40" fill="none" stroke-width="4"/>
+      <line class="s-ink" x1="230" y1="92" x2="230" y2="64" stroke-width="4" stroke-linecap="round" transform="rotate(92 230 92)"/>
+      <line class="s-accent" x1="230" y1="92" x2="230" y2="72" stroke-width="3" stroke-linecap="round" transform="rotate(24 230 92)"/>
+      <circle class="c-ink" cx="230" cy="92" r="4"/>
+      <!-- lamp -->
+      <rect class="c-soft" x="640" y="230" width="6" height="90"/><polygon class="c-accent" points="618,230 668,230 656,196 630,196"/>
+      <!-- couch back + seat -->
+      <rect class="c-couch2" x="90" y="196" width="400" height="80" rx="18"/>
+      <rect class="c-couch" x="70" y="250" width="440" height="56" rx="12"/>
+      <rect class="c-couch2" x="56" y="214" width="46" height="96" rx="16"/>
+      <rect class="c-couch2" x="478" y="214" width="46" height="96" rx="16"/>
+      <rect class="c-pants" x="92" y="306" width="10" height="16"/><rect class="c-pants" x="478" y="306" width="10" height="16"/>
+      <!-- man lying -->
+      <rect class="c-shirt" x="150" y="222" width="170" height="40" rx="20"/>
+      <rect class="c-pants" x="300" y="226" width="150" height="32" rx="16"/>
+      <rect class="c-pants" x="430" y="214" width="78" height="22" rx="11" transform="rotate(-14 430 214)"/>
+      <circle class="c-skin" cx="128" cy="226" r="24"/>
+      <path class="c-ink" d="M106 220 q8-26 36-22 q14 4 10 14 q-20-6-46 8z"/>
+      <rect class="c-skin" x="190" y="250" width="16" height="64" rx="8"/>
+      <rect class="c-ink" x="186" y="306" width="30" height="12" rx="3" opacity=".85"/>
+      <!-- coffee table + empty vitamin bottle -->
+      <rect class="c-soft" x="160" y="346" width="230" height="10" rx="3"/>
+      <rect class="c-label" x="300" y="318" width="22" height="28" rx="4"/><rect class="c-soft" x="302" y="312" width="18" height="8" rx="2"/>
+      <text class="c-ink t-ui" x="560" y="372" font-size="15" font-weight="800" text-anchor="middle">3:04 PM</text>
+    </svg>
+    <figcaption>By mid-afternoon, Tom was usually done for the day. Illustration: The Rested Ledger.</figcaption>
+  </figure>
+
+  <div class="body">
+    <p class="dropcap">Before I get into this, let me introduce myself.</p>
+    <p>Hi, I'm Linda, Tom's wife. We've been married 19 years, and we have one very loud 12-year-old son.</p>
+    <p>I'm not a doctor or a health expert. I'm just a wife who spent two years watching her husband run out of steam, and who finally found something that helped.</p>
+    <p>So let me tell you about Tom.</p>
+    <p>He used to be the guy who did everything. He coached our son's soccer team. He fixed the gutters. He'd still be up at 10 p.m., laughing at some show.</p>
+    <p>Then, somewhere around 44, things started to change. Not overnight. Slowly enough that we both brushed it off at first.</p>
+    <p>By 3 p.m. he was done. He'd come home, drop on the couch, and stay there. "Just tired," he'd say.</p>
+    <p class="strong-line">After a few months of that, I stopped believing "just tired."</p>
+
+    <h2 class="rv">The vitamin graveyard in our kitchen cabinet</h2>
+    <p>So I did what most worried wives do. I went shopping for vitamins.</p>
+    <ul class="fails">
+      <li><span class="x">Bottle 1</span>Pills the size of a thumb. He took four, then stopped.</li>
+      <li><span class="x">Bottle 2</span>"Take 3 daily." He forgot by Wednesday.</li>
+      <li><span class="x">Bottle 3</span>I left them by his coffee. Then a pill organizer. Then reminders. (He loved that.)</li>
+    </ul>
+    <p>Every bottle ended up in the same place: the back of the cabinet, half full.</p>
+    <p>I was out about $200. Tom was still taking nothing.</p>
+
+    <h2 class="rv">What I found when I started reading</h2>
+    <p>Somewhere around bottle number three, I got curious. Why was this even a problem? I started reading, and what I found scared me a little.</p>
+    <p>Surveys suggest most adults fall short on at least one key nutrient, like vitamin D, magnesium, or zinc. For men, those nutrients help support energy, immune function, and muscle.</p>
+    <p>Daily diet doesn't always cover it, especially for busy men who eat on the run. Tom's lunch was usually a gas-station sandwich.</p>
+
+    <h2 class="rv">The answer came over a Saturday coffee</h2>
+    <p>I couldn't stop thinking about it. So one Saturday over coffee, I told my friend Dana everything. Dana is a registered dietitian. Her answer stopped me cold.</p>
+
+    <div class="pull rv">
+      <blockquote>It's not a formula problem. It's a habit problem. The best vitamin in the world does nothing in the cabinet.</blockquote>
+      <cite>Dana Whitfield, RD · registered dietitian (illustrative)</cite>
+    </div>
+
+    <p>She said she sees it all the time. Men buy the vitamin. They don't take the vitamin.</p>
+    <p>For years, the thinking was simple. Pack more into the pill, and it's a better vitamin. So pills got bigger and doses got more complicated, and men quietly stopped taking them.</p>
+    <p>Dana told me the newer thinking flips that around:</p>
+    <p class="principle rv">The vitamin you'll take every day beats the "perfect" one you skip.</p>
+    <p>What matters is three things working together:</p>
+    <ol class="three">
+      <li><span><b>The right nutrients for men.</b> Not a kitchen-sink list.</span></li>
+      <li><span><b>One easy daily step.</b> No horse pills. No counting.</span></li>
+      <li><span><b>Something he actually wants to take.</b> If it feels like a treat, it gets done.</span></li>
+    </ol>
+
+    <figure class="rv">
+      <svg viewBox="0 0 680 270" role="img" aria-label="Diagram: a big pill gets skipped so the nutrient gap stays; a daily gummy gets taken so the gap gets filled">
+        <rect class="c-paper2" width="680" height="270" rx="4"/>
+        <text class="c-soft t-ui" x="24" y="34" font-size="12" font-weight="800" letter-spacing="1.5">THE OLD WAY</text>
+        <text class="c-soft t-ui" x="24" y="160" font-size="12" font-weight="800" letter-spacing="1.5">THE NEW THINKING</text>
+        <!-- row 1 -->
+        <g transform="translate(24 48)">
+          <rect class="c-paper" width="150" height="76" rx="4"/>
+          <rect class="c-soft" x="34" y="26" width="82" height="26" rx="13"/><rect class="c-rule" x="75" y="26" width="41" height="26" rx="13"/>
+          <rect class="c-paper" x="194" width="200" height="76" rx="4"/>
+          <text class="c-ink t-disp" x="294" y="36" font-size="19" font-weight="700" text-anchor="middle">Skipped by Wednesday</text>
+          <text class="c-soft t-ui" x="294" y="58" font-size="12" text-anchor="middle">Big pills, 3 a day, easy to forget</text>
+          <rect class="c-paper" x="414" width="218" height="76" rx="4"/>
+          <text class="c-ink t-ui" x="432" y="30" font-size="13" font-weight="800">Nutrient gap stays</text>
+          <rect class="c-rule" x="432" y="44" width="182" height="14" rx="7"/><rect class="c-soft" x="432" y="44" width="40" height="14" rx="7"/>
+          <path class="s-soft" d="M154 38 h34 m-8 -7 l8 7 -8 7" fill="none" stroke-width="2.5"/>
+          <path class="s-soft" d="M398 38 h12 m-8 -7 l8 7 -8 7" fill="none" stroke-width="2.5"/>
+        </g>
+        <!-- row 2 -->
+        <g transform="translate(24 174)">
+          <rect class="c-paper" width="150" height="76" rx="4"/>
+          <path class="c-berry" d="M55 54 c-12 0-16-10-14-20 c2-12 10-18 20-18 h28 c10 0 18 6 20 18 c2 10-2 20-14 20z"/>
+          <ellipse class="c-berry2" cx="62" cy="28" rx="9" ry="4" opacity=".7"/>
+          <rect class="c-paper" x="194" width="200" height="76" rx="4"/>
+          <text class="c-ink t-disp" x="294" y="36" font-size="19" font-weight="700" text-anchor="middle">Taken every morning</text>
+          <text class="c-soft t-ui" x="294" y="58" font-size="12" text-anchor="middle">Two gummies, tastes like a treat</text>
+          <rect class="c-paper" x="414" width="218" height="76" rx="4"/>
+          <text class="c-ink t-ui" x="432" y="30" font-size="13" font-weight="800">Gap gets filled</text>
+          <rect class="c-rule" x="432" y="44" width="182" height="14" rx="7"/><rect class="c-accent" x="432" y="44" width="176" height="14" rx="7"/>
+          <path class="s-accent" d="M154 38 h34 m-8 -7 l8 7 -8 7" fill="none" stroke-width="2.5"/>
+          <path class="s-accent" d="M398 38 h12 m-8 -7 l8 7 -8 7" fill="none" stroke-width="2.5"/>
+        </g>
+      </svg>
+      <figcaption>Dana's point, drawn out: consistency is what closes the gap. Illustration: The Rested Ledger.</figcaption>
+    </figure>
+
+    <h2 class="rv">"So what do I buy?"</h2>
+    <p>That's what I asked her. Dana pulled a bottle from her bag. "My husband takes these. Two gummies after breakfast. He's never missed a week."</p>
+    <p>It was <b>Northgrain Men's Daily</b>, a multivitamin gummy made for men 35 and up.</p>
+
+    <figure class="rv">
+      <svg viewBox="0 0 680 340" role="img" aria-label="A bottle of Northgrain Men's Daily multivitamin gummies with gummies on the counter">
+        <rect class="c-paper2" width="680" height="340" rx="4"/>
+        <circle class="c-gold" cx="340" cy="170" r="140" opacity=".16"/>
+        <rect class="c-rule" x="0" y="286" width="680" height="54"/>
+        <!-- bottle -->
+        <rect class="c-ink" x="282" y="40" width="116" height="42" rx="8"/>
+        <rect class="c-soft" x="282" y="52" width="116" height="4" opacity=".5"/><rect class="c-soft" x="282" y="64" width="116" height="4" opacity=".5"/>
+        <rect class="c-bottle" x="266" y="78" width="148" height="214" rx="26"/>
+        <rect class="c-paper" x="278" y="96" width="10" height="170" rx="5" opacity=".14"/>
+        <rect class="c-label" x="266" y="132" width="148" height="122"/>
+        <text class="c-accent t-ui" x="340" y="156" font-size="10.5" font-weight="800" letter-spacing="2.5" text-anchor="middle">NORTHGRAIN</text>
+        <text fill="#1C221E" class="t-disp" x="340" y="186" font-size="25" font-weight="800" text-anchor="middle">Men's Daily</text>
+        <rect class="c-accent" x="316" y="196" width="48" height="2"/>
+        <text fill="#4C5650" class="t-ui" x="340" y="216" font-size="9.5" font-weight="600" text-anchor="middle">MULTIVITAMIN GUMMIES</text>
+        <text fill="#4C5650" class="t-ui" x="340" y="240" font-size="9" text-anchor="middle">60 gummies · Mixed berry</text>
+        <!-- gummies -->
+        <g class="c-berry"><path d="M170 300 c-14 0-18-11-16-22 c2-13 11-20 22-20 h30 c11 0 20 7 22 20 c2 11-2 22-16 22z"/>
+        <path d="M470 302 c-12 0-15-9-13-18 c2-11 9-16 18-16 h25 c9 0 16 5 18 16 c2 9-2 18-13 18z"/>
+        <path d="M528 296 c-10 0-13-8-11-15 c2-9 8-14 15-14 h21 c8 0 14 5 15 14 c2 7-1 15-11 15z" transform="rotate(-12 545 282)"/></g>
+        <g class="c-gold"><path d="M222 304 c-11 0-14-8-12-16 c2-10 8-15 16-15 h22 c8 0 15 5 16 15 c2 8-1 16-12 16z" transform="rotate(10 236 290)"/>
+        <path d="M118 302 c-10 0-12-7-11-14 c2-8 7-13 14-13 h19 c7 0 13 5 14 13 c1 7-1 14-11 14z"/></g>
+        <ellipse class="c-paper" cx="176" cy="268" rx="8" ry="3" opacity=".35"/><ellipse class="c-paper" cx="476" cy="276" rx="7" ry="3" opacity=".35"/>
+      </svg>
+      <figcaption>Northgrain Men's Daily: two gummies a day, mixed-berry flavor. Product render for illustration.</figcaption>
+    </figure>
+
+    <p>I was skeptical. Gummies? For a grown man?</p>
+    <p>But I had nothing left to try. So I ordered one bottle.</p>
+
+    <h2 class="rv">Then he started reminding <em>me</em></h2>
+    <p>Tom tried one in the kitchen. He chewed it, raised an eyebrow, and said, "Okay. That's actually good."</p>
+    <p>Then the part I didn't expect. He kept the bottle next to his car keys. Two gummies, every morning, gone.</p>
+
+    <div class="callout rv" aria-label="Thirty-day comparison of days taken">
+      <div class="callout-head"><span>Linda's kitchen calendar</span><span>30 days each</span></div>
+      <div class="cal-row">
+        <div class="cal old"><h3>Old pills <span class="n">9<small> /30</small></span></h3><div class="grid" data-on="1,2,3,4,6,8,9,13,16"></div></div>
+        <div class="cal new"><h3>Northgrain gummies <span class="n">29<small> /30</small></span></h3><div class="grid" data-on="all-but-17"></div></div>
+      </div>
+      <p class="src">Each square is one day. Filled means he took it. Figures illustrative.</p>
+    </div>
+
+    <p>Around week three, I noticed it. He wasn't crashing on the couch every afternoon. He was back in the yard, kicking the ball with our son.</p>
+    <p>I'm not saying a gummy changed his life. But the habit finally stuck, and that was the whole point.</p>
+
+    <h2 class="rv">4 reasons it stuck when nothing else did</h2>
+    <div class="reasons">
+      <div class="reason rv"><div class="num">1</div><div>
+        <h3>Built for men, not everyone.</h3>
+        <p>12 key nutrients that support energy metabolism, immune function, and normal muscle function. No iron, since most men don't need extra.</p>
+        <div class="ingred"><span>Vitamin D3</span><span>Zinc</span><span>Magnesium</span><span>B12</span><span>Selenium</span><span>+7 more</span></div>
+      </div></div>
+      <div class="reason rv"><div class="num">2</div><div>
+        <h3>Two gummies. That's it.</h3>
+        <p>No big pills. No "take 3 with food." No organizer. Chew and go.</p>
+      </div></div>
+      <div class="reason rv"><div class="num">3</div><div>
+        <h3>Tastes like a treat, not a chore.</h3>
+        <p>Mixed-berry flavor with 2g of sugar per serving. Men take it because they <em>want</em> to.</p>
+      </div></div>
+      <div class="reason rv"><div class="num">4</div><div>
+        <h3>A 60-day "Stick With It" guarantee.</h3>
+        <p>Try it for two full months. If he doesn't keep taking it, get every cent back. You don't even need to return the bottle.</p>
+      </div></div>
+    </div>
+    <a class="inline-cta" href="#offer">See this week's reader offer</a>
+
+    <section class="comments rv" aria-label="Reader comments">
+      <div class="comments-h"><span>Reader comments</span><span>218</span></div>
+      <div class="comment"><div class="avatar" aria-hidden="true">MR</div><div>
+        <div class="who"><b>Mike R.</b>, 51, Ohio <span class="stars" aria-label="5 stars">★★★★★</span></div>
+        <p>Wife bought these. I figured they'd go in the cabinet like the rest. Three months in, I haven't missed a week. Kind of shocked myself.</p>
+      </div></div>
+      <div class="comment"><div class="avatar" aria-hidden="true">ST</div><div>
+        <div class="who"><b>Sharon T.</b>, 47, Texas <span class="stars" aria-label="5 stars">★★★★★</span></div>
+        <p>My husband hates pills. He asks <em>me</em> to reorder these. Enough said.</p>
+      </div></div>
+      <div class="comment reply"><div class="avatar" aria-hidden="true">LM</div><div>
+        <div class="who"><b>Linda M.</b> · replying to Sharon</div>
+        <p>Same here! Tom keeps his next to his car keys now.</p>
+      </div></div>
+      <div class="comment"><div class="avatar" aria-hidden="true">DW</div><div>
+        <div class="who"><b>Darnell W.</b>, 39, Georgia <span class="stars" aria-label="5 stars">★★★★★</span></div>
+        <p>I travel for work. One bottle in my bag and I'm covered. Afternoons feel steadier.</p>
+      </div></div>
+    </section>
+
+    <div class="note rv"><b>Editor's note: who it may not suit</b>Northgrain Men's Daily is a dietary supplement, not a medicine. If you take prescription medication or have a medical condition, check with your doctor first. Keep out of reach of children. It looks and tastes like candy.</div>
+
+    <h2 class="rv">The bottom line</h2>
+    <p>Most men don't need a stronger vitamin. They need one they'll actually take.</p>
+    <p>That's why Tom is still taking Northgrain four months later. I didn't remind him once.</p>
+    <p class="aside-note"><b>A note on knock-offs:</b> cheap "men's gummy" copies are popping up online. The real Northgrain Men's Daily is only sold on the official site.</p>
+
+    <section class="offer rv" id="offer" aria-labelledby="offer-h">
+      <svg class="shot" viewBox="0 0 200 240" role="img" aria-label="Northgrain Men's Daily bottle">
+        <rect class="c-ink" x="58" y="18" width="84" height="32" rx="6"/>
+        <rect fill="#2E5A43" x="44" y="46" width="112" height="170" rx="20"/>
+        <rect fill="#F4F1E6" x="44" y="88" width="112" height="94"/>
+        <text fill="#B66F1C" class="t-ui" x="100" y="108" font-size="8.5" font-weight="800" letter-spacing="2" text-anchor="middle">NORTHGRAIN</text>
+        <text fill="#1C221E" class="t-disp" x="100" y="134" font-size="19" font-weight="800" text-anchor="middle">Men's Daily</text>
+        <text fill="#4C5650" class="t-ui" x="100" y="156" font-size="7.5" font-weight="600" text-anchor="middle">MULTIVITAMIN GUMMIES</text>
+        <text fill="#4C5650" class="t-ui" x="100" y="171" font-size="7" text-anchor="middle">60 gummies</text>
+        <text class="c-gold t-ui" x="100" y="234" font-size="10" font-weight="800" text-anchor="middle" letter-spacing="1">60-DAY GUARANTEE</text>
+      </svg>
+      <div>
+        <h2 id="offer-h">This week's reader offer</h2>
+        <p class="lede">Every order includes the 60-day "Stick With It" guarantee.</p>
+        <div class="opts" role="radiogroup" aria-label="Choose a bundle">
+          <label class="opt"><input type="radio" name="pack" id="pack1" value="1"><span>1 bottle<small>30-day supply</small></span><span class="price">$34</span></label>
+          <label class="opt sel"><input type="radio" name="pack" id="pack3" value="3" checked><span>3 bottles <span class="badge">Most popular</span><small>90 days · $29 each · save 15%</small></span><span class="price"><s>$102</s>$87</span></label>
+          <label class="opt"><input type="radio" name="pack" id="pack6" value="6"><span>6 bottles<small>$24 each · save 30% · free shipping</small></span><span class="price"><s>$204</s>$144</span></label>
+        </div>
+        <a class="cta" href="#">Check Availability <span aria-hidden="true">→</span></a>
+        <p class="fine">Stock was limited at time of writing. The discount may end without notice.</p>
+      </div>
+    </section>
+
+    <h2 class="rv">Questions readers asked</h2>
+    <div class="faq">
+      <details><summary>When should he take it?</summary><p>Two gummies with breakfast. Food helps, and the habit sticks better in the morning.</p></details>
+      <details><summary>How soon will he notice anything?</summary><p>Everyone is different. Most men give it 30 to 60 days. The real win is taking it every day.</p></details>
+      <details><summary>Is it high in sugar?</summary><p>2g per serving. That's about half a teaspoon.</p></details>
+      <details><summary>Can women take it?</summary><p>It's made for men. Northgrain makes a separate women's formula.</p></details>
+      <details><summary>What if he stops taking it?</summary><p>Then you get your money back. That's the guarantee.</p></details>
+    </div>
+
+    <p class="disclaimer">This is an advertisement and not a news article. The Rested Ledger and Northgrain are fictional. The story, people, and results are illustrative. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </div>
+</article>
+
+<aside class="rail" aria-label="More from The Rested Ledger">
+  <div>
+    <div class="rail-h ui">Most read in Health &amp; Habits</div>
+    <ol class="mostread">
+      <li><a href="#">The 3 p.m. slump: what your afternoon is trying to tell you</a></li>
+      <li><a href="#">Why men skip the doctor (and how wives get them to go)</a></li>
+      <li><a href="#">Gas-station lunches, ranked by a dietitian</a></li>
+      <li><a href="#">Sleep after 40: small changes that add up</a></li>
+    </ol>
+  </div>
+  <div class="mini sticky">
+    <span class="eyebrow">Reader offer</span>
+    <p>Up to 30% off Northgrain Men's Daily, with a 60-day guarantee.</p>
+    <a href="#offer">See the offer</a>
+  </div>
+</aside>
+</div>
+</main>
+
+<footer class="gutter"><div class="wrap"><span class="port">For Portfolio</span><span>The Rested Ledger and Northgrain are fictional brands.</span></div></footer>
+
+<script>
+(function(){
+  // Calendar grids
+  document.querySelectorAll('.grid').forEach(function(g){
+    var spec=g.getAttribute('data-on'), on=[];
+    if(spec==='all-but-17'){for(var d=1;d<=30;d++) if(d!==17) on.push(d);} else on=spec.split(',').map(Number);
+    for(var i=1;i<=30;i++){var c=document.createElement('i'); if(on.indexOf(i)>-1) c.className='on'; c.title='Day '+i; g.appendChild(c);}
+  });
+  // Bundle selection
+  document.querySelectorAll('.opt input').forEach(function(r){
+    r.addEventListener('change',function(){document.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('sel',o.contains(r)&&r.checked)});});
+  });
+  // Reading progress
+  var bar=document.getElementById('progress');
+  function prog(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?h.scrollTop/max*100:0)+'%';}
+  window.addEventListener('scroll',prog,{passive:true});prog();
+  // Scroll reveal: only below-the-fold items are hidden, so the first frame is complete
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
+  var vh=window.innerHeight, els=[].slice.call(document.querySelectorAll('.rv'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){if(el.getBoundingClientRect().top>vh){el.classList.add('pre');io.observe(el);}});
+})();
+</script>
+</body>
+</html>
