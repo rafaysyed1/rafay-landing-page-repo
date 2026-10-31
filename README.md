@@ -5,7 +5,7 @@ Five direct-response landing pages built for a copywriting portfolio. For each p
 | # | Page type | Niche / fictional brand | Folder | Live link |
 |---|---|---|---|---|
 | 1 | Advertorial | Men's multivitamin gummies (Northgrain Men's Daily) | `/advertorial` | [rafay-landing-page-repo.vercel.app/advertorial](https://rafay-landing-page-repo.vercel.app/advertorial/) |
-| 2 | Book-a-call | TBD | `/book-a-call` | — |
+| 2 | Book-a-call | 1:1 coaching for new tech managers (Keelhouse) | `/book-a-call` | [rafay-landing-page-repo.vercel.app/book-a-call](https://rafay-landing-page-repo.vercel.app/book-a-call/) |
 | 3 | Lead magnet | TBD | `/lead-magnet` | — |
 | 4 | Webinar | TBD | `/webinar` | — |
 | 5 | Sales page | TBD | `/sales-page` | — |
