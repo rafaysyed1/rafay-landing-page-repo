@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 48-Hour Loaf</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Free live sourdough bake-along with Maren Holt of Proofline Bake School. Friday, November 20, 7:00 pm ET.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Libre+Franklin:wght@400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: event ticket hero, then a weekend-long scroll that alternates flour-white pages with crust-umber bands; asymmetric two-column rhythm. */
+:root{
+  --bg:#f6f6f3;          /* rice-flour dusting */
+  --paper:#ffffff;
+  --fg:#2a1a12;          /* crust umber ink */
+  --muted:#6b5d55;
+  --line:#d6d4cf;        /* steel scale grey */
+  --band:#3a2318;        /* scorched crust */
+  --band-fg:#f3eee9;
+  --band-muted:#c7b6a9;
+  --accent:#23897b;      /* starter-jar rubber band teal */
+  --accent-ink:#ffffff;
+  --accent-soft:#bfe5dd;
+  --crumb:#ead8bb;
+  --crust:#7a3f1e;
+  --hole:#c9b08a;
+  --gum:#c7ae86;
+  --display:"Big Shoulders Display","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --mono:"Azeret Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:3px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17110e;--paper:#211813;--fg:#f0e9e3;--muted:#b3a59b;--line:#3d302a;
+  --band:#2b1b13;--band-fg:#f3eee9;--band-muted:#c2b0a2;
+  --accent:#4cc2b0;--accent-ink:#0f1f1c;--accent-soft:#1d5a51;
+  --crumb:#d9c39f;--crust:#8c4a25;--hole:#a88f68;--gum:#b39a72;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17110e;--paper:#211813;--fg:#f0e9e3;--muted:#b3a59b;--line:#3d302a;
+  --band:#2b1b13;--band-fg:#f3eee9;--band-muted:#c2b0a2;
+  --accent:#4cc2b0;--accent-ink:#0f1f1c;--accent-soft:#1d5a51;
+  --crumb:#d9c39f;--crust:#8c4a25;--hole:#a88f68;--gum:#b39a72;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:.005em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,6.2vw,4.9rem);font-weight:900}
+h2{font-size:clamp(2rem,4.2vw,3.1rem)}
+h3{font-size:1.55rem}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:.82rem;letter-spacing:.01em}
+.hl{background:linear-gradient(transparent 52%,var(--accent-soft) 52%,var(--accent-soft) 92%,transparent 92%);padding:0 .08em}
+.bridge{font-weight:600;color:var(--fg);max-width:60ch}
+.band .bridge{color:var(--band-fg)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* top bar */
+.top{border-bottom:1px solid var(--line);background:var(--bg)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand b{font-family:var(--display);font-size:1.6rem;font-weight:900;letter-spacing:.01em}
+.tag{font-family:var(--mono);font-size:.7rem;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:var(--r)}
+.top a.go{font-weight:600;font-size:.92rem;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:1px}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);padding-block:clamp(36px,6vw,72px) clamp(44px,6vw,80px);align-items:start}
+.kick{color:var(--accent);font-weight:500;margin-bottom:18px}
+.sub{font-size:1.15rem;max-width:52ch;margin-top:22px;color:var(--fg)}
+form.reg{display:grid;grid-template-columns:1fr 1.3fr auto;gap:8px;margin-top:28px;max-width:640px}
+.reg label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.reg input{font:inherit;font-size:1rem;padding:14px 14px;border:1.5px solid var(--fg);border-radius:var(--r);background:var(--paper);color:var(--fg);min-width:0}
+.reg button{font:700 1rem var(--body);padding:14px 20px;border:0;border-radius:var(--r);background:var(--accent);color:var(--accent-ink);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;white-space:nowrap}
+.reg button:hover{transform:translateY(-2px);box-shadow:0 6px 0 -2px var(--fg)}
+.reg .done{grid-column:1/-1;font-weight:600;color:var(--accent)}
+.fine{margin-top:14px;color:var(--muted);font-size:.95rem;max-width:56ch}
+.fine strong{color:var(--fg)}
+
+/* ticket */
+.ticket{background:var(--paper);border:1.5px solid var(--fg);border-radius:var(--r);position:relative}
+.ticket .t-head{padding:20px 22px 18px;border-bottom:2px dashed var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:end}
+.datebig{font-family:var(--display);font-weight:900;font-size:4.4rem;line-height:.82;grid-row:span 2}
+.t-head .mono{color:var(--muted)}
+.t-head .when{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1}
+.t-body{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:20px 22px;align-items:center}
+.jar-cap{font-size:.95rem}
+.jar-cap b{font-family:var(--mono);font-weight:500;font-size:1.05rem}
+.t-foot{padding:14px 22px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.t-foot .mono{color:var(--muted)}
+.count{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500}
+
+/* even-if band */
+.band{background:var(--band);color:var(--band-fg)}
+.band .wrap{padding-block:clamp(44px,6vw,72px)}
+.evenif{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,5vw,64px);align-items:start}
+.evenif ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.evenif li{padding:16px 0 16px 34px;border-top:1px solid rgba(255,255,255,.14);position:relative;font-size:1.15rem}
+.evenif li::before{content:"";position:absolute;left:0;top:27px;width:20px;height:5px;border-radius:3px;background:var(--accent)}
+.evenif .bridge{margin-top:26px}
+
+/* sections */
+section.s{padding-block:clamp(56px,8vw,104px)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.prose{display:grid;gap:18px;max-width:62ch}
+.prose h2{margin-bottom:6px}
+.rule{font-size:1.4rem;font-weight:600;line-height:1.35}
+
+/* rise chart */
+.rise{border-left:3px solid var(--accent);padding:6px 0 6px 22px;display:grid;gap:18px;margin-top:8px}
+.rise .row{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center}
+.rise .bar{height:30px;background:var(--line);border-radius:var(--r);position:relative;overflow:hidden}
+.rise .fill{position:absolute;inset:0 auto 0 0;background:var(--fg);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:var(--bg);font-family:var(--mono);font-size:.8rem;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.rise .scale{display:flex;justify-content:space-between;color:var(--muted);margin-left:84px}
+.rise .note{color:var(--muted);font-size:.95rem}
+
+/* crumb toggle */
+.crumb-wrap{background:var(--paper);border:1.5px solid var(--fg);border-radius:var(--r);padding:clamp(18px,3vw,32px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,4vw,48px);align-items:center}
+.toggle{display:inline-flex;border:1.5px solid var(--fg);border-radius:var(--r);overflow:hidden;margin:18px 0 20px}
+.toggle button{font:600 .95rem var(--body);padding:10px 16px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.loaf svg{width:100%;height:auto;display:block}
+.loaf figcaption{color:var(--muted);font-size:.9rem;margin-top:10px}
+.verdict h3{margin-bottom:10px}
+.verdict ul{margin:0 0 14px;padding-left:18px}
+.verdict .why{border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:.95rem}
+.after{margin-top:28px}
+
+/* learn */
+.learn ul{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--fg)}
+.learn li{padding:18px 0;border-bottom:1px solid var(--line);font-size:1.12rem;display:grid;grid-template-columns:28px 1fr;gap:10px}
+.learn li::before{content:"";width:14px;height:14px;border:2px solid var(--accent);border-radius:50%;margin-top:7px}
+.learn .bridge{margin-top:24px}
+
+/* three ways */
+.ways{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:end}
+.dough{display:grid;grid-template-columns:3fr 1.6fr 1.2fr;gap:6px}
+.dough div{background:var(--paper);border:1.5px solid var(--fg);border-radius:var(--r);padding:18px 16px 16px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;transition:transform .2s ease}
+.dough div:hover{transform:translateY(-3px)}
+.dough div:first-child{background:var(--accent-soft)}
+.dough b{font-family:var(--display);font-size:1.45rem;font-weight:800;line-height:1}
+.dough span{font-size:.92rem;color:var(--muted)}
+.ways .bridge{margin-top:22px}
+
+/* timeline */
+.tl{list-style:none;margin:32px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:150px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:150px 1fr;gap:0 32px;padding:0 0 30px;position:relative}
+.tl li::after{content:"";position:absolute;left:144px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--fg)}
+.tl li.live::after{background:var(--accent);border-color:var(--accent)}
+.tl .when{font-family:var(--mono);font-size:.85rem;padding-top:2px;padding-right:18px}
+.tl .what{padding-left:20px;display:grid;gap:4px}
+.tl .what b{font-size:1.1rem}
+.tl .where{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.tl li.live .where{color:var(--accent);font-weight:500}
+
+/* live pull */
+.pull{border-left:3px solid var(--accent);padding-left:24px;font-size:1.3rem;line-height:1.45;font-weight:500;max-width:34ch}
+
+/* fit */
+.fit{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,48px);margin-top:28px}
+.fit ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.fit li{padding-left:22px;position:relative}
+.fit .yes li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;background:var(--accent);border-radius:2px}
+.fit .no{color:var(--muted);border-left:1px solid var(--line);padding-left:clamp(16px,3vw,32px)}
+.fit .no li::before{content:"";position:absolute;left:0;top:13px;width:10px;height:2px;background:var(--muted)}
+.fit h3{margin-bottom:14px;color:var(--fg)}
+
+/* host */
+.host{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.creds{display:grid;gap:0;border-top:1.5px solid var(--band-fg)}
+.creds div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.creds dt,.creds .k{font-family:var(--mono);font-size:.8rem;color:var(--band-muted);padding-top:3px}
+.host blockquote{margin:0;font-size:1.3rem;line-height:1.45;border-left:3px solid var(--accent);padding-left:22px}
+.host .role{color:var(--band-muted);margin:10px 0 22px}
+
+/* proof */
+.proof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:start}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.ba svg{width:100%;height:auto;display:block}
+.ba figcaption{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:8px}
+.quotes{display:grid;gap:26px}
+.quotes blockquote{margin:0;display:grid;gap:8px}
+.quotes p{font-size:1.12rem}
+.quotes cite{font-style:normal;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.quotes blockquote:nth-child(2){padding-left:clamp(0px,4vw,40px)}
+
+/* replay */
+.replay{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1.5px solid var(--fg);border-radius:var(--r);overflow:hidden;margin-top:28px}
+.replay > div{padding:clamp(20px,3vw,32px);display:grid;gap:10px;align-content:start}
+.replay > div + div{background:var(--accent-soft);border-left:1.5px solid var(--fg)}
+.replay .mono{color:var(--muted)}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1.5px solid var(--fg)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font-weight:600;font-size:1.08rem;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;font-family:var(--mono);font-size:1.4rem;color:var(--accent);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;max-width:62ch;color:var(--fg)}
+
+/* final */
+.final .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:end;padding-block:clamp(56px,8vw,96px)}
+.final .reg input{border-color:var(--band-fg);background:transparent;color:var(--band-fg)}
+.final .reg input::placeholder{color:var(--band-muted)}
+.final .reg{grid-template-columns:1fr 1fr;max-width:none}
+.final .reg button{grid-column:1/-1}
+.final p{color:var(--band-muted);margin-top:16px;max-width:52ch}
+.final .ps{margin-top:22px;color:var(--band-fg);border-top:1px solid rgba(255,255,255,.18);padding-top:16px;font-size:.98rem}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:26px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+footer strong{color:var(--fg)}
+
+/* reveal: resting state is visible; JS adds .pre only below the fold */
+.pre{opacity:0;transform:translateY(18px)}
+.rv{transition:opacity .7s ease,transform .7s ease}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .pre{opacity:1;transform:none}
+  .rv,.rise .fill,.reg button,.dough div{transition:none}
+}
+
+@media (max-width:860px){
+  .hero .wrap,.evenif,.split,.crumb-wrap,.ways,.host,.proof,.final .wrap,.fit{grid-template-columns:minmax(0,1fr)}
+  .replay{grid-template-columns:minmax(0,1fr)}
+  .replay > div + div{border-left:0;border-top:1.5px solid var(--fg)}
+  .fit .no{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
+  .ticket{max-width:460px}
+}
+@media (max-width:560px){
+  form.reg{grid-template-columns:1fr}
+  .final .reg{grid-template-columns:1fr}
+  .dough{grid-template-columns:1fr}
+  .dough div{min-height:0}
+  .tl::before{left:6px}
+  .tl li{grid-template-columns:1fr;padding-left:30px}
+  .tl li::after{left:0}
+  .tl .when,.tl .what{padding:0}
+  .tl .when{margin-bottom:4px}
+  .creds div{grid-template-columns:1fr;gap:2px}
+  .rise .scale{margin-left:0}
+  .rise .row{grid-template-columns:1fr;gap:4px}
+  .datebig{font-size:3.6rem}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><b>Proofline Bake School</b><span class="tag">rafay_landing_page_portfolio</span></div>
+    <a class="go" href="#register">Save my free seat</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="register">
+  <div class="wrap">
+    <div>
+      <p class="kick mono">Free live bake-along · Friday, November 20 · 7:00 pm ET · 60 minutes</p>
+      <h1>Your sourdough keeps coming out flat because the recipe gave you <span class="hl">the wrong times.</span></h1>
+      <p class="sub">Join Maren Holt for a free one-hour live class. We'll mix one dough together on Friday night. By Sunday lunch, you'll pull an open, crackly loaf out of your own oven.</p>
+      <form class="reg" id="f1" novalidate>
+        <label for="n1">First name</label><input id="n1" name="name" placeholder="First name" autocomplete="given-name" required>
+        <label for="e1">Email</label><input id="e1" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+        <button type="submit">Save my free seat</button>
+      </form>
+      <p class="fine">Can't make it live? Register anyway and the replay is yours for <strong>72 hours</strong>.</p>
+    </div>
+
+    <aside class="ticket" aria-label="Event details">
+      <div class="t-head">
+        <div class="datebig">20</div>
+        <span class="mono">Friday · November 2026</span>
+        <span class="when">7:00 pm ET · live on Zoom</span>
+      </div>
+      <div class="t-body">
+        <svg viewBox="0 0 96 130" role="img" aria-label="Starter jar showing 312 of 500 live seats taken">
+          <rect x="18" y="4" width="60" height="12" rx="2" fill="var(--line)"/>
+          <path d="M14 18 h68 v98 a10 10 0 0 1 -10 10 h-48 a10 10 0 0 1 -10 -10 z" fill="var(--bg)" stroke="var(--fg)" stroke-width="2.5"/>
+          <clipPath id="jarclip"><path d="M15.5 19.5 h65 v96.5 a8.5 8.5 0 0 1 -8.5 8.5 h-48 a8.5 8.5 0 0 1 -8.5 -8.5 z"/></clipPath>
+          <g clip-path="url(#jarclip)">
+            <rect id="jarfill" x="14" y="126" width="68" height="0" fill="var(--crumb)"/>
+            <g fill="var(--hole)" id="jarbubbles"></g>
+          </g>
+          <rect x="11" y="78" width="74" height="6" rx="3" fill="var(--accent)"/>
+        </svg>
+        <div class="jar-cap">
+          <p><b><span id="taken">312</span> of 500</b> live seats taken</p>
+          <p class="mono" style="color:var(--muted);margin-top:6px">The band marks where we started this week.</p>
+        </div>
+      </div>
+      <div class="t-foot">
+        <span class="mono">Your time: <span id="local">7:00 pm ET</span></span>
+        <span class="count" id="countdown" aria-live="off"></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap evenif">
+    <h2>This class works for you even if</h2>
+    <div>
+      <ul>
+        <li>you work all week and only have Friday evenings free</li>
+        <li>you've baked three bricks in a row and nearly gave up</li>
+        <li>your starter keeps going quiet in the fridge</li>
+      </ul>
+      <p class="bridge">So if you did everything the recipe said, why does the loaf still sink?</p>
+    </div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wrap split">
+    <div class="prose rv">
+      <h2>Why recipes let you down</h2>
+      <p>Hi, I'm Maren. I ran the ovens at a small neighbourhood bakery for eleven years, and I hear that question every week.</p>
+      <p>Most recipes give you clock times like "rise for 4 hours" or "proof overnight." But dough doesn't own a watch. It speeds up or slows down with the heat in your kitchen.</p>
+      <p>At my bakery, the first rise took 3 hours in July and 7 hours in January. Same flour, same starter, same baker. If I'd followed a 4-hour recipe in winter, half my loaves would have come out flat.</p>
+      <p class="rule">So I teach one simple rule: <span class="hl">read the dough.</span> Learn the few signs that show it's ready, and trust them over the timer.</p>
+    </div>
+    <div class="rv">
+      <div class="rise" id="rise" aria-label="First rise time at Maren's bakery">
+        <p class="mono" style="color:var(--muted)">First rise at the bakery, same recipe</p>
+        <div class="row"><span class="mono">July</span><div class="bar"><div class="fill" data-w="37.5" style="width:37.5%">3 h</div></div></div>
+        <div class="row"><span class="mono">January</span><div class="bar"><div class="fill" data-w="87.5" style="width:87.5%">7 h</div></div></div>
+        <div class="row"><span class="mono">Recipe</span><div class="bar"><div class="fill" data-w="50" style="width:50%;background:var(--accent);color:var(--accent-ink)">4 h</div></div></div>
+        <div class="scale mono"><span>0 h</span><span>4 h</span><span>8 h</span></div>
+        <p class="note">A fixed 4-hour rise is an hour too long in July and three hours too short in January.</p>
+      </div>
+      <p class="bridge" style="margin-top:28px">Below you can see what that difference looks like inside a loaf.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s" style="padding-top:0">
+  <div class="wrap">
+    <div class="crumb-wrap rv">
+      <figure class="loaf" style="margin:0">
+        <svg id="crumbMain" viewBox="0 0 320 200" role="img" aria-label="Cross-section of a sourdough loaf"></svg>
+        <figcaption>Two loaves from the same batch, baked side by side in my kitchen.</figcaption>
+      </figure>
+      <div class="verdict">
+        <h2>Same recipe, two ways to time it</h2>
+        <div class="toggle" role="group" aria-label="Choose a loaf">
+          <button type="button" id="tClock" aria-pressed="true">Followed the clock</button>
+          <button type="button" id="tDough" aria-pressed="false">Read the dough</button>
+        </div>
+        <div id="vClock">
+          <h3>Tight, gummy, pale</h3>
+          <ul><li>Small, even holes packed close together</li><li>A gummy band along the bottom</li><li>Pale crust that goes soft by evening</li></ul>
+          <p class="why">Shaped at hour 4 in a 19°C kitchen. The dough was only half ready.</p>
+        </div>
+        <div id="vDough" hidden>
+          <h3>Open, glossy, dark</h3>
+          <ul><li>Big, uneven holes with a shiny crumb</li><li>Even rise from base to top</li><li>Dark blistered crust that crackles as it cools</li></ul>
+          <p class="why">Shaped at hour 6, once the dough was domed, jiggly and about 50% bigger.</p>
+        </div>
+      </div>
+    </div>
+    <p class="bridge after">On Friday I'll show you those signs on real dough, so you'll know them when you see them at home.</p>
+  </div>
+</section>
+
+<section class="s learn" style="padding-top:0">
+  <div class="wrap split">
+    <h2 class="rv">What you'll learn in 60 minutes</h2>
+    <div class="rv">
+      <ul>
+        <li>The 2 signs your starter is ready to bake with (and why "it doubled" can fool you)</li>
+        <li>What fully risen dough feels like under your fingers, shown up close on camera</li>
+        <li>The one kitchen detail that changes your rise time most, and a free way to control it</li>
+        <li>Why your scoring cuts seal shut in the oven, and the one-second fix</li>
+        <li>How to fit the whole loaf into a normal weekend without a 3 a.m. alarm</li>
+      </ul>
+      <p class="bridge">And you won't leave with just one loaf.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s" style="padding-top:0">
+  <div class="wrap ways">
+    <div class="prose rv">
+      <h2>One dough, three ways</h2>
+      <p>The dough you mix on Friday can become three different bakes. After class, you'll get a printable recipe card for each.</p>
+    </div>
+    <div class="rv">
+      <div class="dough">
+        <div><b>Country loaf</b><span>For Sunday lunch</span></div>
+        <div><b>Olive oil focaccia</b><span>For Saturday dinner</span></div>
+        <div><b>Thin pizza bases</b><span>Freeze for later</span></div>
+      </div>
+      <p class="bridge">To help you plan, this is how the weekend runs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s band">
+  <div class="wrap">
+    <h2 class="rv" style="max-width:16ch">Your 48-hour weekend</h2>
+    <ol class="tl rv">
+      <li class="live"><span class="when">Fri · 7:00 pm ET</span><div class="what"><span class="where">Live with Maren · 60 min</span><b>Check your starter, mix the dough, ask questions</b></div></li>
+      <li><span class="when">Sat · morning</span><div class="what"><span class="where">At home · 4 × 10 min</span><b>Stretch and folds, using the cue card</b></div></li>
+      <li><span class="when">Sat · evening</span><div class="what"><span class="where">At home · 5 min</span><b>Shape it and put it in the fridge</b></div></li>
+      <li style="padding-bottom:0"><span class="when">Sun · late morning</span><div class="what"><span class="where">At home · about 45 min, mostly oven time</span><b>Score and bake, then post your crumb shot in the class group. Maren replies to each one.</b></div></li>
+    </ol>
+    <p class="bridge" style="margin-top:36px">You could try this from a PDF, but there's a reason I teach it live.</p>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wrap split">
+    <div class="prose rv">
+      <h2>Why live works better</h2>
+      <p>Sourdough is hard to learn from words. "Slightly jiggly" means something different to every reader.</p>
+      <p>On Friday you'll see the dough move on camera and hear how it sounds when I tip it from the bowl. You can type a question while your hands are still floury, and I'll answer as we go.</p>
+    </div>
+    <div class="rv" style="align-self:center">
+      <p class="pull">You can type a question while your hands are still floury.</p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(56px,7vw,88px)">
+    <p class="bridge rv">Before you save a seat, make sure the class suits you.</p>
+    <div class="fit rv">
+      <div class="yes">
+        <h3>Good fit if you</h3>
+        <ul>
+          <li>have tried sourdough and keep getting dense or flat loaves</li>
+          <li>have a starter, or can get one by Friday</li>
+          <li>can spare one hour on Friday and a few short check-ins over the weekend</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>May not suit you if you</h3>
+        <ul>
+          <li>bake gluten-free, since this dough relies on wheat flour</li>
+          <li>want bread the same day, since sourdough needs about 40 hours</li>
+          <li>already love your loaves, since you may find this too basic</li>
+        </ul>
+      </div>
+    </div>
+    <p class="bridge rv" style="margin-top:32px">If you're still reading, you probably want to know who's teaching.</p>
+  </div>
+</section>
+
+<section class="s band">
+  <div class="wrap host">
+    <div class="rv">
+      <h2>Your host, Maren Holt</h2>
+      <p class="role">Head teacher at Proofline Bake School</p>
+      <div class="creds">
+        <div><span class="k">Bakery</span><span>Eleven years as head baker at Rye &amp; Rafter, a neighbourhood bakery</span></div>
+        <div><span class="k">By hand</span><span>About 40,000 loaves shaped</span></div>
+        <div><span class="k">Online</span><span>More than 6,000 home bakers taught since 2022</span></div>
+      </div>
+    </div>
+    <blockquote class="rv">"My first sourdough came out like a frisbee. My boss poked it and said I'd shaped it two hours early. That was the first time anyone told me to look at the dough instead of the clock."</blockquote>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wrap">
+    <p class="bridge rv" style="margin-bottom:28px">A few people from the last class sent in their results.</p>
+    <div class="proof">
+      <div class="rv">
+        <h2 style="margin-bottom:20px">Results from the last class</h2>
+        <div class="ba">
+          <figure><svg id="baBefore" viewBox="0 0 320 200" role="img" aria-label="Dana's loaf before class: dense crumb"></svg><figcaption>Dana's loaf · week before class</figcaption></figure>
+          <figure><svg id="baAfter" viewBox="0 0 320 200" role="img" aria-label="Dana's loaf after class: open crumb"></svg><figcaption>Dana's loaf · the Sunday after</figcaption></figure>
+        </div>
+      </div>
+      <div class="quotes rv">
+        <blockquote><p>"My last four loaves were bricks. This one had holes I could fit my thumb in. My husband ate half of it standing at the counter."</p><cite>Dana R., Ohio</cite></blockquote>
+        <blockquote><p>"I work 50-hour weeks and thought sourdough wasn't for me. The weekend plan fit fine. I set one alarm, for the oven."</p><cite>Priya S., Toronto</cite></blockquote>
+        <blockquote><p>"The fridge trick for my starter was worth the hour on its own."</p><cite>Tom B., Leeds</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" style="padding-top:0">
+  <div class="wrap">
+    <p class="bridge rv">Even if Friday doesn't work for you, it's still worth registering.</p>
+    <div class="replay rv">
+      <div>
+        <span class="mono">Everyone who registers</span>
+        <h3>The full replay for 72 hours</h3>
+        <p>It goes to your inbox after class. It won't be posted anywhere else.</p>
+      </div>
+      <div>
+        <span class="mono">Live attendees only</span>
+        <h3>My discard cracker card</h3>
+        <p>It turns the starter you'd normally throw away into a tin of crisp seeded crackers. I only send it to people who were there on Friday night.</p>
+      </div>
+    </div>
+    <p class="bridge rv" style="margin-top:32px">A few questions come up every time, so I've answered them below.</p>
+  </div>
+</section>
+
+<section class="s faq" style="padding-top:0">
+  <div class="wrap split">
+    <h2 class="rv">Questions before Friday</h2>
+    <div class="rv">
+      <details><summary>Do I need a starter?</summary><p>Yes. If you don't have one, your confirmation email shows you how to get one in time for Friday.</p></details>
+      <details><summary>What equipment do I need?</summary><p>A bowl, a kitchen scale and an oven. A Dutch oven helps, but I'll also show a baking tray method.</p></details>
+      <details><summary>What time is it where I live?</summary><p>Friday, November 20 at 7:00 pm ET. That's <span class="localtxt">7:00 pm ET</span> for you.</p></details>
+      <details><summary>Is it really free? Will you sell something?</summary><p>It's free. In the last 5 minutes I'll mention my paid 4-week course for anyone who wants more help. You're welcome to leave before that.</p></details>
+      <details><summary>Will there be a replay?</summary><p>Yes. It goes to your email and stays up for 72 hours.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band final">
+  <div class="wrap">
+    <div class="rv">
+      <h2 style="font-size:clamp(2.4rem,5vw,3.8rem)">Save your seat for Friday's bake-along.</h2>
+      <p>Give it one hour on Friday and you'll have a loaf by Sunday lunch. <strong style="color:var(--band-fg)"><span id="left">188</span> live seats left.</strong></p>
+    </div>
+    <div class="rv">
+      <form class="reg" id="f2" novalidate>
+        <label for="n2">First name</label><input id="n2" name="name" placeholder="First name" autocomplete="given-name" required>
+        <label for="e2">Email</label><input id="e2" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+        <button type="submit">Save my free seat</button>
+      </form>
+      <p class="ps"><strong>P.S.</strong> I cap the live room at 500 so I can read every question in the chat. If it fills up you'll still get the replay, but the cracker card only goes to people who came live.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Proofline Bake School is a fictional brand made for a portfolio project. Page by Rafay.</span>
+    <span><strong>For Portfolio</strong> · <span class="mono">rafay_landing_page_portfolio</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  function rng(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;};}
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  var uid=0;
+  function drawLoaf(svg,mode,seed){
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    var id="lc"+(uid++), r=rng(seed);
+    var shape= mode==="open"
+      ? "M22 176 C18 92 70 26 160 24 C250 26 302 92 298 176 Z"
+      : "M28 176 C26 120 78 70 160 68 C242 70 294 120 292 176 Z";
+    var cp=el("clipPath",{id:id});cp.appendChild(el("path",{d:shape}));svg.appendChild(cp);
+    svg.appendChild(el("path",{d:shape,fill:"var(--crumb)"}));
+    var g=el("g",{"clip-path":"url(#"+id+")"});
+    if(mode==="open"){
+      for(var i=0;i<46;i++){
+        var x=40+r()*240,y=40+r()*130,rx=4+r()*15,ry=rx*(.45+r()*.4);
+        g.appendChild(el("ellipse",{cx:x.toFixed(1),cy:y.toFixed(1),rx:rx.toFixed(1),ry:ry.toFixed(1),transform:"rotate("+((r()*50-25)|0)+" "+x.toFixed(1)+" "+y.toFixed(1)+")",fill:"var(--hole)"}));
+      }
+    }else{
+      g.appendChild(el("rect",{x:0,y:146,width:320,height:34,fill:"var(--gum)"}));
+      for(var j=0;j<190;j++){
+        var x2=36+r()*248,y2=78+r()*70,rr=1+r()*2.6;
+        g.appendChild(el("circle",{cx:x2.toFixed(1),cy:y2.toFixed(1),r:rr.toFixed(1),fill:"var(--hole)"}));
+      }
+    }
+    svg.appendChild(g);
+    svg.appendChild(el("path",{d:shape,fill:"none",stroke:"var(--crust)","stroke-width":mode==="open"?11:6,"stroke-linejoin":"round"}));
+    svg.appendChild(el("line",{x1:10,y1:184,x2:310,y2:184,stroke:"var(--line)","stroke-width":2}));
+    if(mode==="open"){svg.appendChild(el("path",{d:"M120 40 Q160 30 205 44",fill:"none",stroke:"var(--crumb)","stroke-width":4,"stroke-linecap":"round",opacity:".55"}));}
+  }
+
+  var main=document.getElementById("crumbMain");
+  drawLoaf(main,"dense",7);
+  drawLoaf(document.getElementById("baBefore"),"dense",19);
+  drawLoaf(document.getElementById("baAfter"),"open",23);
+
+  var tC=document.getElementById("tClock"),tD=document.getElementById("tDough"),vC=document.getElementById("vClock"),vD=document.getElementById("vDough");
+  function setMode(open){
+    tC.setAttribute("aria-pressed",String(!open));tD.setAttribute("aria-pressed",String(open));
+    vC.hidden=open;vD.hidden=!open;drawLoaf(main,open?"open":"dense",open?11:7);
+  }
+  tC.addEventListener("click",function(){setMode(false);});
+  tD.addEventListener("click",function(){setMode(true);});
+
+  // seats jar: interior spans y=19..125
+  var taken=312,cap=500,h=106*taken/cap;
+  var fill=document.getElementById("jarfill");fill.setAttribute("y",(125-h).toFixed(1));fill.setAttribute("height",h.toFixed(1));
+  var bub=document.getElementById("jarbubbles"),rb=rng(5);
+  for(var b=0;b<16;b++){bub.appendChild(el("circle",{cx:(20+rb()*56).toFixed(1),cy:(125-h+4+rb()*(h-8)).toFixed(1),r:(1+rb()*2.4).toFixed(1)}));}
+
+  // local time + countdown (7:00 pm EST = 00:00 UTC on Nov 21)
+  var start=new Date(Date.UTC(2026,10,21,0,0,0));
+  try{
+    var s=start.toLocaleString(undefined,{weekday:"short",hour:"numeric",minute:"2-digit",timeZoneName:"short"});
+    document.getElementById("local").textContent=s;
+    document.querySelectorAll(".localtxt").forEach(function(n){n.textContent=s;});
+  }catch(e){}
+  var cd=document.getElementById("countdown");
+  function tick(){
+    var ms=start-new Date();
+    if(ms<=0){cd.textContent="Class is live";return;}
+    var d=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4);
+    cd.textContent="Starts in "+d+"d "+String(hh).padStart(2,"0")+"h "+String(mm).padStart(2,"0")+"m";
+  }
+  tick();setInterval(tick,30000);
+
+  // forms are visual only
+  ["f1","f2"].forEach(function(id){
+    var f=document.getElementById(id);
+    f.addEventListener("submit",function(e){
+      e.preventDefault();
+      var em=f.querySelector("input[type=email]");
+      var old=f.querySelector(".done");if(old)old.remove();
+      var p=document.createElement("p");p.className="done";p.setAttribute("role","status");
+      p.textContent=(em.value&&em.checkValidity())?"You're in. Check your inbox for the Friday link.":"Add your email so I can send you the link.";
+      f.appendChild(p);
+    });
+  });
+
+  // scroll reveal for below-the-fold only
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce && "IntersectionObserver" in window){
+    var vh=window.innerHeight;
+    var items=[].slice.call(document.querySelectorAll(".rv")).filter(function(n){return n.getBoundingClientRect().top>vh;});
+    items.forEach(function(n){n.classList.add("pre");});
+    var bars=[].slice.call(document.querySelectorAll(".rise .fill"));
+    var riseBelow=document.getElementById("rise").getBoundingClientRect().top>vh;
+    if(riseBelow)bars.forEach(function(b){b.style.width="0%";});
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting)return;
+        en.target.classList.remove("pre");
+        if(en.target.contains(document.getElementById("rise")))bars.forEach(function(b){b.style.width=b.dataset.w+"%";});
+        io.unobserve(en.target);
+      });
+    },{rootMargin:"0px 0px -8% 0px"});
+    items.forEach(function(n){io.observe(n);});
+    setTimeout(function(){items.forEach(function(n){n.classList.remove("pre");});bars.forEach(function(b){b.style.width=b.dataset.w+"%";});},6000);
+  }
+})();
+</script>
+</body>
+</html>
