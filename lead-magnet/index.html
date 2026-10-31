@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leash Pulling Reset</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Free 5-day email course from Slackline Dog School to stop your dog pulling on the leash.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..900&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=Martian+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: offset hero (promise + form left, freebie bundle right), then a narrow reading column that breaks wide for the leash and the tracker. */
+:root{
+  --bg:#e6e8e4; --paper:#f5f6f3; --fg:#231c1d; --muted:#5b5655; --line:#c7cbc4;
+  --ox:#5a1c27; --on-ox:#f6f1ee; --ox-text:#5a1c27; --ball:#cfe04a; --on-ball:#1c1b10;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"Karla","Segoe UI",system-ui,sans-serif;
+  --mono:"Martian Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#171516; --paper:#221e1f; --fg:#ecebe7; --muted:#aaa4a2; --line:#3a3536;
+  --ox:#7e2a39; --on-ox:#fbf6f4; --ox-text:#eba3ae; --ball:#cfe04a; --on-ball:#1c1b10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171516; --paper:#221e1f; --fg:#ecebe7; --muted:#aaa4a2; --line:#3a3536;
+  --ox:#7e2a39; --on-ox:#fbf6f4; --ox-text:#eba3ae; --ball:#cfe04a; --on-ball:#1c1b10; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:118%;font-weight:800;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,4.6vw,3.5rem)}
+h2{font-size:clamp(1.6rem,3.2vw,2.35rem)}
+h3{font-size:1.15rem;font-stretch:112%}
+p{margin:0}
+.hl{background:linear-gradient(transparent 58%,var(--ball) 58%);color:inherit;padding:0 .08em}
+.dark .hl,.band .hl{color:var(--on-ball);background:var(--ball)}
+.bridge{font-style:italic;color:var(--muted);max-width:52ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ball);outline-offset:2px}
+
+/* header */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:14px}
+.brand{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1rem;display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+.tag{font-family:var(--mono);font-size:.68rem;border:1px solid var(--line);padding:4px 8px;border-radius:3px;color:var(--muted)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);padding-block:clamp(36px,6vw,72px) clamp(40px,6vw,80px);align-items:center}
+.hero-copy{display:grid;gap:20px;min-width:0}
+.kicker{font-weight:700;color:var(--ox-text);font-size:.95rem}
+.lede{font-size:1.15rem;max-width:46ch}
+form{display:grid;gap:14px}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+legend{font-weight:700;margin-bottom:8px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 .95rem var(--body);background:var(--paper);color:var(--fg);border:1.5px solid var(--line);border-radius:3px;padding:9px 14px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.chip:hover{transform:translateY(-2px);border-color:var(--ox-text)}
+.chip[aria-pressed="true"]{background:var(--ox);color:var(--on-ox);border-color:var(--ox)}
+.hint{font-size:.88rem;color:var(--muted)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row input{flex:1 1 220px;min-width:0;font:400 1rem var(--body);padding:13px 14px;border:1.5px solid var(--line);border-radius:3px;background:var(--paper);color:var(--fg)}
+.row input:focus{border-color:var(--ox-text);outline:none}
+.btn{font:800 1rem var(--display);font-stretch:112%;background:var(--ox);color:var(--on-ox);border:0;border-radius:3px;padding:14px 22px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 -2px var(--ball)}
+.fine{font-size:.86rem;color:var(--muted)}
+.note{font-weight:600;color:var(--ox-text);min-height:1.4em}
+
+/* bundle mockup */
+.bundle{position:relative;min-height:400px;min-width:0}
+.mock{position:absolute;border-radius:3px;transition:transform .35s ease}
+.pdf{width:58%;aspect-ratio:3/4;left:6%;top:0;background:var(--ox);color:var(--on-ox);padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-4deg);box-shadow:0 18px 30px -18px rgba(0,0,0,.45)}
+.pdf b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(1.05rem,2vw,1.45rem);line-height:1.05}
+.pdf small{font-family:var(--mono);font-size:.62rem;opacity:.85}
+.pdf .loop{width:46px;height:46px;border:5px solid var(--ball);border-radius:50%}
+.vid{width:62%;aspect-ratio:16/10;right:0;top:34%;background:#141213;color:#f2efea;display:grid;place-items:center;transform:rotate(3deg);box-shadow:0 18px 30px -18px rgba(0,0,0,.5)}
+.vid .play{width:52px;height:52px;border-radius:50%;background:var(--ball);display:grid;place-items:center}
+.vid span{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:.62rem}
+.trk{width:52%;left:12%;bottom:0;background:var(--paper);border:1px solid var(--line);padding:12px 14px;transform:rotate(-1.5deg);box-shadow:0 14px 26px -18px rgba(0,0,0,.4)}
+.trk p{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-bottom:8px}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.grid7 i{aspect-ratio:1;border:1.5px solid var(--line);border-radius:2px;display:grid;place-items:center;font-style:normal;font-size:.7rem;color:var(--ox-text);font-weight:700}
+.bundle:hover .pdf{transform:rotate(-6deg) translateY(-4px)}
+.bundle:hover .vid{transform:rotate(4deg) translateY(-4px)}
+
+/* sections */
+section{padding-block:clamp(48px,7vw,88px)}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px)}
+.split > *{min-width:0}
+.get-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.get-list div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding-block:20px;border-bottom:1px solid var(--line)}
+.get-list .fmt{font-family:var(--mono);font-size:.75rem;color:var(--muted);padding-top:4px}
+.get-list h3{margin-bottom:4px}
+.sticky-head{display:grid;gap:16px;align-content:start}
+
+/* route (5 days) */
+.route{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.route::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;border-left:2px dashed var(--line)}
+.route li{display:grid;grid-template-columns:24px 1fr;gap:18px;padding-block:14px;position:relative}
+.route .dot{width:24px;height:24px;border-radius:50%;background:var(--bg);border:2px solid var(--ox-text);margin-top:2px}
+.route li:last-child .dot{background:var(--ball);border-color:var(--ball)}
+.route b{font-family:var(--display);font-stretch:112%;font-weight:800}
+.route .d{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:block}
+
+/* preview card */
+.preview{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:clamp(22px,4vw,40px);max-width:760px;margin-left:auto;display:grid;gap:18px}
+.preview .from{font-family:var(--mono);font-size:.72rem;color:var(--ox-text)}
+.preview ol{margin:0;padding-left:1.3em;display:grid;gap:10px}
+.preview li::marker{font-family:var(--display);font-weight:800;color:var(--ox-text)}
+
+/* leash */
+.leash-sec{background:var(--ox);color:var(--on-ox)}
+.leash-sec .bridge{color:var(--on-ox);opacity:.8}
+.leash-head{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,5vw,64px);align-items:end}
+.leash-head > *{min-width:0}
+.leash-head p + p{margin-top:12px}
+.leash-fig{margin:36px 0 18px}
+.leash-fig svg{width:100%;height:auto;display:block;overflow:visible}
+.leash-cap{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.75rem;gap:12px}
+.leash-cap b{color:var(--ball);font-weight:600}
+
+/* proof */
+.proof .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,64px)}
+.proof .wrap > *{min-width:0}
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:20px}
+.chart h3{font-size:1rem;margin-bottom:4px}
+.chart p{font-size:.9rem;color:var(--muted)}
+.chart svg{width:100%;height:auto;display:block;margin-top:14px}
+.chart text{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.statline{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-bottom:22px}
+.quotes{display:grid;gap:26px}
+blockquote{margin:0;padding-left:18px;border-left:3px solid var(--ox-text)}
+blockquote p{font-size:1.08rem}
+blockquote cite{display:block;font-style:normal;font-size:.88rem;color:var(--muted);margin-top:6px}
+.quotes blockquote:nth-child(2){margin-left:clamp(0px,4vw,48px)}
+
+/* dana */
+.dana{display:grid;grid-template-columns:160px 1fr;gap:28px;max-width:780px}
+.portrait{width:160px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:3px;display:block;box-shadow:8px 8px 0 var(--ball)}
+.cred{font-family:var(--mono);font-size:.74rem;color:var(--ox-text);margin:6px 0 14px}
+.dana p + p{margin-top:12px}
+
+/* not suit */
+.caution{max-width:720px;border-left:3px solid var(--fg);padding:4px 0 4px 22px;display:grid;gap:12px}
+
+/* final */
+.band{background:var(--ox);color:var(--on-ox)}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.band .wrap > *{min-width:0}
+.band .chip{background:transparent;color:var(--on-ox);border-color:rgba(255,255,255,.35)}
+.band .chip[aria-pressed="true"]{background:var(--ball);color:var(--on-ball);border-color:var(--ball)}
+.band .row input{background:rgba(255,255,255,.08);color:var(--on-ox);border-color:rgba(255,255,255,.35)}
+.band .row input::placeholder{color:rgba(255,255,255,.65)}
+.band .btn{background:var(--ball);color:var(--on-ball)}
+.band .btn:hover{box-shadow:0 6px 0 -2px var(--on-ox)}
+.band .fine,.band .hint{color:var(--on-ox);opacity:.8}
+.band .note{color:var(--ball)}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:22px;font-size:.88rem;color:var(--muted)}
+
+/* reveal: only items below the first screen get hidden, by JS */
+.pre{opacity:0;transform:translateY(16px)}
+.rv{transition:opacity .7s ease,transform .7s ease}
+
+@media (max-width:860px){
+  .hero .wrap,.split,.leash-head,.proof .wrap,.band .wrap{grid-template-columns:1fr}
+  .bundle{min-height:340px;max-width:440px}
+  .preview{margin-left:0}
+}
+@media (max-width:520px){
+  .get-list div{grid-template-columns:1fr;gap:4px}
+  .dana{grid-template-columns:1fr}
+  .portrait{width:120px}
+  .bundle{min-height:290px}
+  .quotes blockquote:nth-child(2){margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .pre{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 4 C 12 18, 22 18, 32 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="4" r="3" fill="var(--ball)"/></svg>
+      Slackline Dog School
+    </div>
+    <span class="tag">rafay_landing_page_portfolio</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="kicker">Free 5-day email course for dogs who pull</p>
+        <h1>Five short lessons to stop your dog <span class="hl">pulling on the leash</span></h1>
+        <p class="lede">Each lesson takes about six minutes to watch and ten minutes to practice on your normal walk. You don't need new gear or long training sessions.</p>
+        <form class="optin" novalidate>
+          <fieldset>
+            <legend>How big is your dog?</legend>
+            <div class="chips" role="group" aria-label="Dog size">
+              <button type="button" class="chip" aria-pressed="false" id="s1-small">Small, under 20 lb</button>
+              <button type="button" class="chip" aria-pressed="true" id="s1-med">Medium, 20 to 50 lb</button>
+              <button type="button" class="chip" aria-pressed="false" id="s1-large">Large and strong</button>
+            </div>
+            <p class="hint">We'll send tips that fit your dog's size.</p>
+          </fieldset>
+          <div class="row">
+            <label for="email1" class="sr" style="position:absolute;left:-9999px">Your email</label>
+            <input id="email1" type="email" placeholder="Your email" autocomplete="email">
+            <button class="btn" type="submit">Send me Day 1</button>
+          </div>
+          <p class="fine">Free. One email a day for 5 days. Unsubscribe in one click.</p>
+          <p class="note" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="bundle" aria-label="What's in the free course: a PDF guide, five videos and a walk tracker">
+        <div class="mock pdf">
+          <small>Slackline Dog School · PDF, 12 pages</small>
+          <div class="loop" aria-hidden="true"></div>
+          <b>The 5-Day Leash Pulling Reset</b>
+        </div>
+        <div class="mock vid" aria-hidden="true">
+          <div class="play"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 1 L17 10 L2 19 Z" fill="#1c1b10"/></svg></div>
+          <span>Day 2 · The stop · 6:12</span>
+        </div>
+        <div class="mock trk" aria-hidden="true">
+          <p>Walk tracker · week 1</p>
+          <div class="grid7"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="sticky-head rv">
+        <h2>What lands in your inbox</h2>
+        <p class="bridge">Every lesson comes with three things you can use on tomorrow morning's walk.</p>
+      </div>
+      <div class="get-list rv">
+        <div><span class="fmt">PDF · 12 pages</span><div><h3>The Reset Guide</h3><p>The steps for each day, written so you can read them on your phone at the front door.</p></div></div>
+        <div><span class="fmt">5 videos · ~6 min</span><div><h3>Five short videos</h3><p>Watch me work with real pulling dogs, from a 14 lb terrier to a 90 lb shepherd mix.</p></div></div>
+        <div><span class="fmt">Printable</span><div><h3>The Walk Tracker</h3><p>Tick one box after each walk and watch the pulling drop from week to week.</p></div></div>
+        <p class="bridge" style="padding-top:18px">The lessons build on each other, so the order matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap split">
+      <div class="sticky-head rv"><h2>The five days</h2></div>
+      <div class="rv">
+        <ol class="route">
+          <li><span class="dot"></span><p><span class="d">Day 1</span><b>The front door.</b> Most pulling starts before your dog even reaches the sidewalk.</p></li>
+          <li><span class="dot"></span><p><span class="d">Day 2</span><b>The stop.</b> What to do with your feet the second the leash goes tight.</p></li>
+          <li><span class="dot"></span><p><span class="d">Day 3</span><b>The reward spot.</b> Where you hand over the treat changes where your dog wants to walk.</p></li>
+          <li><span class="dot"></span><p><span class="d">Day 4</span><b>The squirrel problem.</b> How to keep your dog's attention when something exciting shows up.</p></li>
+          <li><span class="dot"></span><p><span class="d">Day 5</span><b>The full walk.</b> Put it all together on your usual route, from the door and back.</p></li>
+        </ol>
+        <p class="bridge" style="margin-top:22px">Below is a short piece of Day 1 so you can see how practical it is. Try it before your next walk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <article class="preview rv">
+        <p class="from">From Day 1</p>
+        <h2 style="font-size:clamp(1.35rem,2.6vw,1.8rem)">If your dog launches out the door</h2>
+        <ol>
+          <li>Clip the leash on with the door still closed. Hold a treat in your hand.</li>
+          <li>Open the door a few inches. If your dog pushes forward, close it gently and wait.</li>
+          <li>When your dog backs off or looks at you, say "yes," give the treat by your leg, and open the door again.</li>
+        </ol>
+        <p>Most dogs get this in 5 to 10 tries. It feels slow the first morning. By day three, a lot of owners tell me the door is the <span class="hl">calmest part of the walk</span>.</p>
+        <p class="bridge">The same simple rule runs through all five days.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="leash-sec" id="rule">
+    <div class="wrap">
+      <div class="leash-head">
+        <h2>A tight leash pauses the walk. A loose leash <span class="hl">keeps it going.</span></h2>
+        <div>
+          <p>Your dog pulls because pulling works. It gets them to the smell, the other dog or the park a little faster.</p>
+          <p>Over five days, you change that deal. When the leash goes tight, you stop. When it goes loose, you walk again. Dogs learn fast when the rule stays the same every single time.</p>
+        </div>
+      </div>
+      <figure class="leash-fig" aria-label="A leash drawn tight on Day 1 that hangs loose by Day 5">
+        <svg viewBox="0 0 640 130" aria-hidden="true">
+          <rect x="6" y="44" width="30" height="34" rx="12" fill="none" stroke="currentColor" stroke-width="5"/>
+          <path id="leash" d="M36 60 C 230 115, 420 115, 604 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="616" cy="60" r="12" fill="none" stroke="var(--ball)" stroke-width="5"/>
+        </svg>
+        <figcaption class="leash-cap"><span>Day 1 · the leash is <b id="leash-state">loose</b></span><span>Day 5</span></figcaption>
+      </figure>
+      <p class="bridge">More than 31,000 owners have already been through the five days. A few of them wrote back.</p>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="wrap">
+      <div class="chart rv">
+        <h3>Sample walk tracker</h3>
+        <p>Times the leash went tight on the same 15-minute route, one owner, 14 walks.</p>
+        <svg id="chart" viewBox="0 0 360 170" role="img" aria-label="Pulls per walk fell from 23 on walk 1 to 4 on walk 14"></svg>
+      </div>
+      <div>
+        <p class="statline">31,400 owners have taken the reset · rated 4.8 out of 5 from 2,100 replies</p>
+        <div class="quotes">
+          <blockquote class="rv"><p>"Biscuit is a 70 lb lab who used to drag me to the mailbox. On day four I walked the whole block holding the leash with two fingers."</p><cite>Megan R., Ohio · Labrador</cite></blockquote>
+          <blockquote class="rv"><p>"I almost skipped day one because the door thing seemed silly. It ended up fixing half the problem."</p><cite>Tom A., Leeds · Border collie mix, 45 lb</cite></blockquote>
+          <blockquote class="rv"><p>"My dachshund is small but she pulls like a sled dog. The reward spot worked faster than anything I bought."</p><cite>Ana S., Austin · Dachshund, 11 lb</cite></blockquote>
+        </div>
+        <p class="bridge" style="margin-top:26px">I built this course after twelve years of teaching the same walk lesson in parks and driveways.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="dana rv">
+        <img class="portrait" src="data:image/jpeg;base64,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" alt="Dana Whitlock, dog trainer" width="360" height="450">
+        <div>
+          <h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem)">I'm Dana Whitlock.</h2>
+          <p class="cred">Certified professional dog trainer · 3,000+ dogs trained · shelter volunteer since 2016</p>
+          <p>I've trained dogs for twelve years, mostly family dogs who turn every walk into a tug of war. I run Slackline Dog School with two other trainers, and leash pulling is the most common reason people call us.</p>
+          <p>I made the reset free because most owners only need the basics, done in the right order.</p>
+          <p class="bridge" style="margin-top:18px">Before you sign up, one honest note about who this is for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="caution rv">
+        <h2 style="font-size:clamp(1.3rem,2.4vw,1.7rem)">Who this may not suit</h2>
+        <p>The reset is for everyday pulling, like the excited dog who just wants to get somewhere faster.</p>
+        <p>If your dog lunges at people or other dogs, has bitten, or pulls hard enough to knock you off balance, please work with a qualified trainer in person first.</p>
+        <p>The course gives general training tips. It can't assess behavior or health problems. If the pulling started suddenly, check with your vet.</p>
+        <p class="bridge">If that sounds like your dog's everyday pulling, Day 1 can be in your inbox in about a minute.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="start">
+    <div class="wrap">
+      <div>
+        <h2>Start the 5-Day Leash Pulling Reset</h2>
+        <p style="margin-top:12px;max-width:40ch">Pick your dog's size, add your email, and watch Day 1 before tonight's walk.</p>
+      </div>
+      <form class="optin" novalidate>
+        <fieldset>
+          <legend>How big is your dog?</legend>
+          <div class="chips" role="group" aria-label="Dog size">
+            <button type="button" class="chip" aria-pressed="false" id="s2-small">Small</button>
+            <button type="button" class="chip" aria-pressed="true" id="s2-med">Medium</button>
+            <button type="button" class="chip" aria-pressed="false" id="s2-large">Large and strong</button>
+          </div>
+        </fieldset>
+        <div class="row">
+          <label for="email2" style="position:absolute;left:-9999px">Your email</label>
+          <input id="email2" type="email" placeholder="Your email" autocomplete="email">
+          <button class="btn" type="submit">Send me Day 1</button>
+        </div>
+        <p class="fine">No spam. Unsubscribe in one click.</p>
+        <p class="note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Slackline Dog School is a fictional brand. Page by Rafay. For Portfolio.</span>
+    <span class="tag">rafay_landing_page_portfolio</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // size chips
+  document.querySelectorAll('.chips').forEach(function(g){
+    g.addEventListener('click',function(e){
+      var b=e.target.closest('.chip'); if(!b) return;
+      g.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});
+    });
+  });
+  // demo forms
+  document.querySelectorAll('form.optin').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var i=f.querySelector('input[type=email]'), n=f.querySelector('.note');
+      if(!/^\S+@\S+\.\S+$/.test(i.value.trim())){n.textContent='Add a valid email so we know where to send Day 1.';i.focus();return;}
+      n.textContent='Day 1 is on its way to '+i.value.trim()+'. (Demo form: nothing is sent.)';
+    });
+  });
+
+  // tracker chart, drawn to scale: y 0..25
+  var data=[23,21,22,18,16,15,12,11,9,8,7,6,5,4];
+  var svg=document.getElementById('chart'), NS='http://www.w3.org/2000/svg';
+  var x0=30,x1=352,y0=140,y1=14,max=25,slot=(x1-x0)/data.length,bw=slot*0.62;
+  function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+  [0,10,20].forEach(function(v){var y=y0-(v/max)*(y0-y1);
+    el('line',{x1:x0,x2:x1,y1:y,y2:y,stroke:'var(--line)','stroke-width':1});
+    el('text',{x:x0-6,y:y+3,'text-anchor':'end'},v);});
+  data.forEach(function(v,i){var h=(v/max)*(y0-y1),x=x0+i*slot+(slot-bw)/2,last=i===data.length-1;
+    el('rect',{x:x,y:y0-h,width:bw,height:h,rx:1.5,fill:last?'var(--ball)':'var(--ox-text)',opacity:last?1:.85});
+    if(i===0||last) el('text',{x:x+bw/2,y:y0-h-5,'text-anchor':'middle',style:'fill:var(--fg);font-weight:600'},v);});
+  el('text',{x:x0,y:158},'Walk 1');
+  el('text',{x:x1,y:158,'text-anchor':'end'},'Walk 14');
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // leash: tight -> slack as section scrolls through
+  var path=document.getElementById('leash'), sec=document.getElementById('rule'), state=document.getElementById('leash-state');
+  function setLeash(p){var sag=60+p*55;path.setAttribute('d','M36 60 C 230 '+sag+', 420 '+sag+', 604 60');state.textContent=p<.35?'tight':p<.75?'easing off':'loose';}
+  if(!reduce){
+    var tick=false;
+    function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){tick=false;
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight;
+      var p=Math.min(1,Math.max(0,(vh*0.85-r.top)/(r.height*0.9)));setLeash(p);});}
+    var start=sec.getBoundingClientRect().top;
+    if(start>window.innerHeight){setLeash(0);window.addEventListener('scroll',onScroll,{passive:true});}
+  }
+
+  // reveal only what starts below the first screen
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target);}})},{threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(n){if(n.getBoundingClientRect().top>window.innerHeight){n.classList.add('pre');io.observe(n);}});
+  }
+})();
+</script>
+
+</body>
+</html>
